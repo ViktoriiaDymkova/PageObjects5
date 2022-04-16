@@ -17,7 +17,7 @@ public class RegistrationFormTests {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
-
+/////это проверка
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
