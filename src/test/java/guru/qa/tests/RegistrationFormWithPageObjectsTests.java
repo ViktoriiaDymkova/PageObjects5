@@ -16,7 +16,7 @@ public class RegistrationFormWithPageObjectsTests {
     String firstName = "vika";
     String lastName = "kom";
     String userEmail = "vika@kom.com";
-    String genter = "Female"
+    String genter = "Female";
     String phone = "1234567890";
     String subject = "English";
     String hobbie = "Music";
@@ -48,9 +48,9 @@ public class RegistrationFormWithPageObjectsTests {
                 .getCurrentAddress(currentAddress)
                 .setState(state)
                 .setCity(city)
-                .setsubmit()
+                .setsubmit();
     //       $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        registrationFormPage.checkHeader(Thanks for submitting the form)
+        registrationFormPage.checkExample("Thanks for submitting the form");
         registrationFormPage.checkResult("Student Name", "vika kom")
                 .checkResult("Student Email", "vika@kom.com")
                 .checkResult("Gender", "Female");

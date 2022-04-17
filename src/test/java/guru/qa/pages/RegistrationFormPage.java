@@ -85,7 +85,7 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationPages checkHeader(String header, String value) {
+    public RegistrationFormPage checkExample(String header, String value) {
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         return this;
     }
