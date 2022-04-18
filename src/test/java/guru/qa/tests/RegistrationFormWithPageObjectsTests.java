@@ -11,19 +11,19 @@ public class RegistrationFormWithPageObjectsTests {
 
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
-    String firstName = "vika";
-    String lastName = "kom";
-    String userEmail = "vika@kom.com";
-    String genter = "Female";
-    String phone = "1234567890";
-    String month = "July";
-    String year = "1991";
-    String day = "11";
-    String subject = "English";
-    String hobbie = "Music";
-    String currentAddress = "Spb";
-    String state = "NCR";
-    String city = "Delhi";
+    String firstName = "vika",
+    lastName = "kom",
+    userEmail = "vika@kom.com",
+    genter = "Female",
+    phone = "1234567890",
+    month = "July",
+    year = "1991",
+    day = "11",
+    subject = "English",
+    hobbie = "Music",
+    currentAddress = "Spb",
+    state = "NCR",
+    city = "Delhi";
     String expectedFullName = format("%s %s", firstName, lastName);
 
 
