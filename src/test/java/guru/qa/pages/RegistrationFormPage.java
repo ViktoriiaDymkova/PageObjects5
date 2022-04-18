@@ -1,15 +1,16 @@
 package guru.qa.pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.github.javafaker.Faker;
+import guru.qa.pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
+    CalendarComponent calendar = new CalendarComponent();
     //locators
+SelenideElement firstNameInput = $("#firstName");
 
 
     //actions
@@ -30,33 +31,29 @@ public class RegistrationFormPage {
         $("#lastName").setValue(value);
         return this;
     }
-    public RegistrationFormPage setuserEmail(String value){
+    public RegistrationFormPage setUserEmail(String value){
         $("#userEmail").setValue(value);
         return this;
     }
-    public RegistrationFormPage setGender(String value){
-        $("#genterWrapper").setValue(value);
+    public RegistrationFormPage getGender(String value){
+        $("#genterWrapper").$(byText(value)).click();
         return this;
     }
     public RegistrationFormPage setPhoneNumber(String value) {
-        $("#phone").setValue(value).click();
+        $("[id=userNumber]").setValue(value);
         return this;
     }
 
-    public RegistrationFormPage setDateOfBirth(String month, String year, String day){
+    public RegistrationFormPage setBirthDate(String month, String year, String day){
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(month);
-        $(".react-datepicker__year-select").selectOption(year);
-        $(".react-datepicker__day--0" + day).click();
+        calendar.setDate(month, year, day);
         return this;
     }
 
-    public RegistrationFormPage setSubjects(String English) {
-        $("#subjectsInput").setValue("English").pressEnter();
+    public RegistrationFormPage setSubject(String value) {
+        $("#subjectsInput").setValue(value).pressEnter();
         return this;
     }
-
-
 
     public RegistrationFormPage getHobbies (String Music){
     $("#hobbiesWrapper").$(byText(Music)).click();
@@ -85,13 +82,14 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage checkExample(String header, String value) {
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        return this;
+   public RegistrationFormPage checkExample(){
+       $("#example-modal-sizes-title-lg")
+               .shouldHave(text("Thanks for submitting the form"));
+       return this;
     }
     public RegistrationFormPage checkResult(String key, String value){
         $(".table-responsive").$(byText(key))
             .parent().shouldHave(text(value));
         return this;
     }
-    }
+}
