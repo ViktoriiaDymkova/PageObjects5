@@ -4,10 +4,13 @@ import com.codeborne.selenide.Configuration;
 import guru.qa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import static java.lang.String.format;
 
 
 public class RegistrationFormWithPageObjectsTests {
+
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
     String firstName = "vika";
     String lastName = "kom";
     String userEmail = "vika@kom.com";
@@ -21,6 +24,8 @@ public class RegistrationFormWithPageObjectsTests {
     String currentAddress = "Spb";
     String state = "NCR";
     String city = "Delhi";
+    String expectedFullName = format("%s %s", firstName, lastName);
+
 
     @BeforeAll
     static void beforeAll() {
@@ -30,6 +35,7 @@ public class RegistrationFormWithPageObjectsTests {
     }
     @Test
     void fillFormTest() {
+
         registrationFormPage.openPage()
                 .setFirstName(firstName)
                 .setlastName(lastName)
@@ -45,6 +51,6 @@ public class RegistrationFormWithPageObjectsTests {
                 .setCity(city)
                 .setsubmit();
         registrationFormPage.checkExample();
-        registrationFormPage.checkResult("Student Name","vika kom");
+        registrationFormPage.checkResult("Student Name",expectedFullName);
     }
 }

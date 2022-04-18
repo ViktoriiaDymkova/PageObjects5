@@ -24,12 +24,10 @@ public class RegistrationFormWithRandomUtilsTests {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
-/////это проверка
+
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
-        //executeJavaScript("$('footer').remote()");
-        //executeJavaScript("$('#fixe').remote()");
         zoom(0.65);
 
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));

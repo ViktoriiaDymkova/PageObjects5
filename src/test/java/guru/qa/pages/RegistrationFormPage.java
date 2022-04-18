@@ -17,8 +17,6 @@ SelenideElement firstNameInput = $("#firstName");
     public RegistrationFormPage openPage(){
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        //executeJavaScript("$('footer').remote()");
-        //executeJavaScript("$('#fixe').remote()");
         zoom(0.65);
         return this;
     }
