@@ -36,21 +36,21 @@ public class RegistrationFormWithPageObjectsTests {
     @Test
     void fillFormTest() {
 
-        registrationFormPage.openPage()
-                .setFirstName(firstName)
+        registrationFormPage.openPage();
+        registrationFormPage.setFirstName(firstName)
                 .setlastName(lastName)
                 .setUserEmail(userEmail)
-                .getGender(genter)
+                .setGender(genter)
                 .setPhoneNumber(phone)
                 .setBirthDate(month, year, day)
                 .setSubject(subject)
-                .getHobbies(hobbie)
+                .setHobbies(hobbie)
                 .upLoadPicture()
                 .getCurrentAddress(currentAddress)
                 .setState(state)
                 .setCity(city)
                 .setsubmit();
-        registrationFormPage.checkExample();
+        registrationFormPage.checkPracticeForm();
         registrationFormPage.checkResult("Student Name",expectedFullName);
     }
 }

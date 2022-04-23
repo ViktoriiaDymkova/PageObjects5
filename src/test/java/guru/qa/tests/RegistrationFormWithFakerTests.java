@@ -5,6 +5,7 @@ import com.github.javafaker.Faker;
 import guru.qa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import static com.codeborne.selenide.Selenide.*;
 import static java.lang.String.format;
 
@@ -39,26 +40,27 @@ public class RegistrationFormWithFakerTests {
         open("/automation-practice-form");
         zoom(0.65);
     }
+
     @Test
     void fillFormTest() {
 
-            registrationFormPage.openPage()
-                    .setFirstName(firstName)
-                    .setlastName(lastName)
-                    .setUserEmail(userEmail)
-                    .getGender(genter)
-                    .setPhoneNumber(phone)
-                    .setBirthDate(month, year, day)
-                    .setSubject(subject)
-                    .getHobbies(hobbie)
-                    .upLoadPicture()
-                    .getCurrentAddress(currentAddress)
-                    .setState(state)
-                    .setCity(city)
-                    .setsubmit();
-            registrationFormPage.checkExample();
-            registrationFormPage.checkResult("Student Name",expectedFullName);
-        }
+        registrationFormPage.openPage()
+                .setFirstName(firstName)
+                .setlastName(lastName)
+                .setUserEmail(userEmail)
+                .setGender(genter)
+                .setPhoneNumber(phone)
+                .setBirthDate(month, year, day)
+                .setSubject(subject)
+                .setHobbies(hobbie)
+                .upLoadPicture()
+                .getCurrentAddress(currentAddress)
+                .setState(state)
+                .setCity(city)
+                .setsubmit();
+        registrationFormPage.checkPracticeForm();
+        registrationFormPage.checkResult("Student Name", expectedFullName);
     }
+}
 
 

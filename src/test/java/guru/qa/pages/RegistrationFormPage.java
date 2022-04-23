@@ -9,8 +9,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
     CalendarComponent calendar = new CalendarComponent();
+
     //locators
-SelenideElement firstNameInput = $("#firstName");
+SelenideElement firstNameInput = $("#firstName"),
+            lastNameImput =  $("#lastName"),
+            userEmailImput= $("#userEmail");
+
+
 
 
     //actions
@@ -22,18 +27,18 @@ SelenideElement firstNameInput = $("#firstName");
     }
 
     public RegistrationFormPage setFirstName(String value){
-        $("#firstName").setValue(value);
+        firstNameInput.setValue(value);
         return this;
     }
     public RegistrationFormPage setlastName(String value){
-        $("#lastName").setValue(value);
+        lastNameImput.setValue(value);
         return this;
     }
     public RegistrationFormPage setUserEmail(String value){
-        $("#userEmail").setValue(value);
+        userEmailImput.setValue(value);
         return this;
     }
-    public RegistrationFormPage getGender(String value){
+    public RegistrationFormPage setGender(String value){
         $("#genterWrapper").$(byText(value)).click();
         return this;
     }
@@ -53,7 +58,7 @@ SelenideElement firstNameInput = $("#firstName");
         return this;
     }
 
-    public RegistrationFormPage getHobbies (String Music){
+    public RegistrationFormPage setHobbies (String Music){
     $("#hobbiesWrapper").$(byText(Music)).click();
    return this;
 }
@@ -80,7 +85,7 @@ SelenideElement firstNameInput = $("#firstName");
         return this;
     }
 
-   public RegistrationFormPage checkExample(){
+   public RegistrationFormPage checkPracticeForm(){
        $("#example-modal-sizes-title-lg")
                .shouldHave(text("Thanks for submitting the form"));
        return this;
